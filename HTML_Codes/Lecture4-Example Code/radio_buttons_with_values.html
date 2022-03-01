@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Radio Buttons and Values</title>
+</head>
+<body>
+  <h1>Radio Buttons and Values</h1>
+  Where are you traveling to? <br>
+  <form id="travelInfo">
+   New York: 		<input type="radio" name="city" id="radNy" 		value="New York"> <br>
+   Los Angeles: <input type="radio" name="city" id="radLa" 		value="Los Angeles"><br>
+   Washington: 	<input type="radio" name="city" id="radWash" 	value="Washington"><br>
+
+   <!-- Recall that we give all the radio buttons the same name so as to group them together.
+    This way, the user can only select one button from this group. -->
+
+  <button type="button" onclick="checkCity()">Go!</button>
+
+  <div id="output">
+  </div>
+  </form>
+
+<script>
+  function checkCity()
+  {
+    var outputMessage = "You are going to ";
+		var cityChoice;
+
+    if (document.getElementById('radNy').checked)
+    {
+      cityChoice = document.getElementById('radNy').value;
+    }
+    else if (document.getElementById('radLa').checked )
+    {
+      cityChoice = document.getElementById('radLa').value;
+    }
+    else if (document.getElementById('radWash').checked )
+    {
+      cityChoice = document.getElementById('radWash').value;
+    }
+
+    outputMessage = outputMessage + cityChoice + ".";
+		document.getElementById("output").innerHTML = outputMessage;
+  } //end of checkCity function
+</script>
+</body>
+</html>
