@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Museum Admission Calculator</title>
+	<style>
+		.main-heading {  width:404px; background-color:lightgray; font-size:150%; }
+		.main-content { 
+            width:400px; 
+            border:2px solid; 
+            background-color:peachpuff; 
+        }
+        .results-emphasize { font-size:120%; color:darkgreen;}  
+	</style>
+</head>
+<body>
+<header class="main-heading">
+  <h1>Museum Admission</h1>
+</header>
+<main class="main-content">
+	<form id="ticketOrder" >
+		<p>Are you a senior citizen? ($5 off)
+			<input type="checkbox" id="chkSenior">
+		</p>
+		<p>Which exhibit do you wish to see? <br>
+        <!-- NOTE: There are many web designers who believe that the <br>
+        tag should only be used in specific situations. We will not delve into
+        this topic here, but there is lots of information online. -->
+          
+        Regular Exhibit ($10)
+		<input type="radio" name="exhibitChoice" id="radRegular" value="10" 
+               checked="checked"> <br>
+          
+		Special Exhibit ($15)
+		<input type="radio" name="exhibitChoice" id="radSpecial" value="15"><br>
+		</p>
+
+		<p>Are you a member of the museum? (10% off)<br>
+		  Yes: <input type="radio" name="isMember" id="radMember"><br>
+		  No: <input type="radio" name="isMember" id="radNotMember">
+		</p>
+      
+		<input type="button" value="Entry Fee" onclick="calculateAdmission()">
+        <!-- Reminder: the <button> tag is preferred over this version! -->
+	</form>
+
+	<div id="admissionResults">
+	</div><!-- end of admissionResults div -->
+</main>
+<script>
+function calculateAdmission()
+{
+    var cost = 0;  //initialize the 'cost' variable to $0 dollars
+    var now = new Date();
+
+    //We start with an initial string, and we'll' concatenate to it at the end.
+    //Also note: This line of code is broken into an extra line since it
+    //would otherwise extend beyond 80 characters, and we try to avoid that
+    var outputString = 
+          "<span class='results-emphasize'>Thank you for your order on "
+          + now.getUTCMonth() + "/" + now.getUTCDate() + ".";
+  
+    //We give an initial value to the variable 'cost'.
+    //We will then adjust it as needed.
+    if (document.getElementById('radRegular').checked)
+    {
+        cost = document.getElementById('radRegular').value;
+        //Remember that it's FINE -- and often a good idea -- to have values 
+        //inside of things like radio buttons and checkboxes.
+        //Whether it makes sense to do so depends on  the particular situation.
+      
+        //The following would also work
+        //    cost = cost + 10;
+        //but the first version is better
+    }
+    else if (document.getElementById('radSpecial').checked)
+    {
+        cost = document.getElementById('radSpecial').value;
+    }
+
+    cost = parseFloat(cost); //remember that the value came back as a string!!
+
+    //If visitor is a senior, adjust 'cost' by subtracting 5.
+    if (document.getElementById('chkSenior').checked)
+    {
+        cost = cost-5;
+    }
+
+    //If visitor is a museum member, adjust cost by calculating
+    //a 10% discount, and assign the new value to 'cost'.
+    if (document.getElementById('radMember').checked)
+        cost = 0.9*cost;  //braces are optional since there is only 1 line
+
+    cost = cost.toFixed(2); //set cost to 2 decimal places
+
+    //Concatenate onto 'outputString' the additional text:
+    outputString = outputString + " Your entry fee is $" + cost 
+            + ". Thank you for your support.</span>";
+  
+    document.getElementById("admissionResults").innerHTML = outputString;
+}
+</script>
+</body>
+</html>
