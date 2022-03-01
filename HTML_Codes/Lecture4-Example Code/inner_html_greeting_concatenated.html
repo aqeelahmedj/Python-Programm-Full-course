@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Concatenation with innerHTML</title>
+</head>
+<body>
+  <h1>innerHTML Example</h1>
+  <button onclick="greetUser()">Greet Me!</button>
+
+  <div id="output" style="color:#ff0000;">
+  </div>
+  
+<script>
+function greetUser()
+{
+    var greeting = 	"<p><strong>Hello user, how are you this fine day?</strong>" +
+                    "<br>Today is: " + Date() + 
+                    ".<br>I hope you have a great one!<p>";
+
+    document.getElementById("output").innerHTML = greeting;
+}
+</script>
+</body>
+</html>
