@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vote Checker</title>
+  <style>
+    .form-style-classic { 
+      width:300px; border:solid 2px #99ccff; background-color:#ffcc99; padding:10px;
+    }
+    .results-output { color:#0000ff;}
+  </style>
+</head>
+<body>
+	<h2>Vote Checker</h2>
+  <form id="voterInfo"  class="form-style-classic">
+   <p><label for="txtAge">How old are you?</label>
+     <input type="text" id="txtAge" size="10" /></p>
+
+   <p><label for="txtRegistered">Are you registered to vote?</label><br>
+    (Enter 'yes' or 'no'):
+     <input type="text" id="txtRegistered" size="8" ></p>
+
+   <p><label for="txtFelon">Are you a convicted felon?</label><br>
+    (Enter 'yes' or 'no'): <input type="text" id="txtFelon" size="8" ></p>
+
+   <p>*** 
+     <button type="button" onclick="checkVoterEligibility()" style="background-color:#ffff99;">
+       Can I Vote?</button>
+      ***</p>
+  </form>
+  <div id="voteResults" class="results-output"></div><!-- end of voteResults div -->
+<script>
+  function checkVoterEligibility() {
+    var age, isFelon, isRegistered;
+
+    age = document.getElementById('txtAge').value;
+    age = parseInt(age);
+
+    isRegistered = document.getElementById('txtRegistered').value;
+
+    isFelon = document.getElementById('txtFelon').value;
+
+    if ( age>=18 && isRegistered=="yes" && isFelon=="no")
+    {
+      resultsString = "Congratulations, you may vote!";
+    }
+    else
+    {
+      resultsString = "I'm sorry, you are not qualified to vote.";
+    }
+    
+    document.getElementById("voteResults").innerHTML = resultsString;
+  }
+</script>
+</body>
+</html>
