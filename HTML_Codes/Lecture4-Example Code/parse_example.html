@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Parse Example</title>
+</head>
+<body>
+  <h1>Parse Example</h1>
+  <p>How old are you now? <input type="text" id="txtAge">
+
+  <p><button onclick="calcNextYear()">How old will I be next year?</button>
+		
+<script>
+function calcNextYear() {
+  var ageThisYear, ageNextYear;
+
+  ageThisYear = document.getElementById("txtAge").value;
+  ageThisYear = parseInt(ageThisYear);
+
+  ageNextYear = ageThisYear + 1;
+
+  alert("Next year, you will be: " + ageNextYear + " years old!");
+}
+</script>
+</body>
+</html>
