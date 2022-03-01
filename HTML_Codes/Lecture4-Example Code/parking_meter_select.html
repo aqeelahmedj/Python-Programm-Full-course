@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Parking Meter</title>
+</head>
+<body>
+<header>
+  <h1>What day is it?</h1>
+</header>
+<main>
+  Choose one:
+  <select id="selDayOfWeek">
+      <option value="su">Sunday</option>
+      <option value="mo">Monday</option>
+      <option value="tu">Tuesday</option>
+      <option value="we">Wednesday</option>
+      <option value="th">Thursday</option>
+      <option value="fr">Friday</option>
+      <option value="sa">Saturday</option>
+  </select>
+  <button type="button" onclick="determinePayment()">
+    Do I need to pay?</button>
+<p>
+<div id="output_area">
+</div> <!-- end of output_area div -->
+</main>
+<script>
+function determinePayment() {
+  var outputString;
+  var dayOfWeek = document.getElementById("selDayOfWeek").value;
+
+  if ( dayOfWeek != "su" )
+  {
+    outputString = "You must pay the meter!";
+  }
+  else
+  {
+    outputString = "You do not have to pay the meter!";
+  }
+  //Note the efficiency of this coding!
+
+  document.getElementById("output_area").innerHTML = outputString;
+}
+</script>
+</body>
+</html>
