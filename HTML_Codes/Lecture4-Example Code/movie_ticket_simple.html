@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Movie Ticket Cost</title>
+</head>
+<body>
+    <p><label for="txtAge">How old are you?</label>
+       <input type="text" id="txtAge">
+       <button type="button" onclick="calcTicketCost()">Ticket Cost</button>
+  
+    <div id="results"></div>  
+<script>
+function calcTicketCost()
+{
+  var age;
+  age = document.getElementById('txtAge').value;
+
+  age = parseInt(age);
+  //Be ABSOLUTELY sure you understand why we need the above line.
+  //If you are not clear on it, be sure to go back and review that lecture!
+
+  if (age >= 65)
+  {
+    document.getElementById("results").innerHTML = "Your ticket costs $5.00";
+  }
+  else
+  {
+    document.getElementById("results").innerHTML = "Your ticket costs $10.00";
+  }
+} 
+</script>
+</body>
+</html>
