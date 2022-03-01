@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Self-Study Exercise</title>
+</head>
+<body>
+<h1>Some Simple Conversions - Self Study Exercise</h1>
+<p>As mentioned in lecture, it is very important to be willing and able to study code on your own and try to learn from it.</p>
+  
+<p>Examine this page. In particular, note:
+  <ul>
+    <li>The use of multiple functions on the page. This is fine - and in fact, very common!</li>
+    <li>Having different buttons - each of which invokes its own function.</li>
+    <li>Extracting a specific part of the date from JavaScript's Date() function.</li>
+    <li>The need for the type attribute in the button tag.</li>
+  </ul>
+
+<p><button onclick="outputTime()" type="button">Tell me the Time</button>
+
+<p><button type="button"  onclick="convertGallon()">Convert 1 gallon to liters</button>
+
+<p><button type="button"  onclick="convertKilo()">Convert 1 kilogram to pounds</button>
+
+<div id="output" style="background-color:#00ffff; width:300px;" >
+</div><!-- end of output div -->
+
+<script>
+  function outputTime() {
+    var d, hours, minutes;
+    
+    d =  new Date();
+    hours = d.getHours();
+    minutes = d.getMinutes();
+    //Search your preferred referenceto learn about other
+    //functions you can use with JavaScript's Date() function
+    
+    var resultsString = "The time is: " + hours + ":" + minutes + ".";
+    
+    document.getElementById("output").innerHTML = resultsString;
+  }
+
+  function convertGallon() {
+      var resultsString = 	"1 gallon equals 3.8 liters.";
+      document.getElementById("output").innerHTML = resultsString;
+  }
+
+  function convertKilo() {
+      var resultsString = "1 kilogram equals 2.2 pounds.";
+      document.getElementById("output").innerHTML = resultsString;
+  }
+</script>
+</body>
+</html>
