@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Concatenation Example</title>
+</head>
+<body>
+<h1>It Takes Practice...</h1>
+<form id="userInfo">
+  <p>First Name: 	<input type="text" id="txtFirstName">
+  <p>Last Name:  	<input type="text" id="txtLastName">
+  <p>Age: 		    <input type="text" id="txtAge">
+
+  <p><button onclick="testConcatenation()">Submit Form</button>
+</form>
+<script>
+  function testConcatenation()
+  {
+    var firstName, lastName, age;
+    firstName = document.getElementById("txtFirstName").value;
+    lastName = document.getElementById("txtLastName").value;
+    age = document.getElementById("txtAge").value;
+
+    alert("Hello " +  firstName  +  " "  +  lastName +  "! " +
+          "You are "  +  age  +   " years old.");
+  }
+</script>
+</body>
+</html>
