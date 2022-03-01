@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>DOM Example</title>
+<script type="text/javascript">
+function domTest(){
+var images = document.images;
+//Recall that 'window' is implicit
+var str="List of Alt Values:\n";
+for (var i=0; i<images.length; i++) {
+//this is called a 'loop'
+str += images[i].alt + "\n";
+}
+alert(str);
+} //end domTest()
+</script>
+</head>
+<body onload="domTest()">
+<p>Some smiley-face balls:</p>
+<img src="blue_ball.jpg" alt="Pic of blue ball" height="80" width="80">
+<img src="green_ball.jpg" alt="Pic of green ball" height="80" width="80">
+<img src="red_ball.jpg" alt="Pic of red ball" height="80" width="80">
+</body>
+</html>
