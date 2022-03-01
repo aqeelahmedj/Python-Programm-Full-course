@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BMI Calculator</title>
+</head>
+<body>
+<h2>BMI Calculator</h2>
+<form id="bmiInfo">
+  <p>Enter your height in inches:
+  <input type="text" id="txtHeight" size="10">
+
+  <p>Enter your weight in pounds:
+  <input type="text" id="txtWeight" size="8" >
+  <p><button type="button" onclick="calculateBMI()">Tell me my BMI</button>
+</form>
+  
+<div id="results"></div>
+  
+<script>
+  function calculateBMI() {
+    var height, weight, bmi;
+
+    height = document.getElementById('txtHeight').value;
+    weight = document.getElementById('txtWeight').value;
+
+    height = parseFloat(height);
+    weight = parseFloat(weight);
+
+    bmi = weight*703 / (height*height);
+    bmi = bmi.toFixed(1);
+
+    resultsString = "For a weight of " + weight + " pounds, "
+        + "and a height of " + height + " inches, "
+        + "your BMI is " + bmi + ".";
+    
+    document.getElementById("results").innerHTML = resultsString;
+  }
+</script>
+</body>
+</html>
