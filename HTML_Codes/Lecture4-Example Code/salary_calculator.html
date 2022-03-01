@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Salary Calculator</title>
+  <style>
+    .form-style { width:500px; background-color:peachpuff; border:2px solid; padding:10px; }
+  </style>
+</head>
+<body>
+  <h2>Pay Calculator</h2>
+  <form id="employeeInfo" class="form-style">
+    <p><label for="txtHours">How many hours did you work this week?</label>
+        <input type="text" id="txtHours"></p>
+
+    <p><label for ="txtHourlyPay">How much is your hourly pay rate?</label> 
+      <input type="text" id="txtHourlyPay"></p>
+
+    <p><input type="button" value="Calculate My Salary!" onclick="calcSalary()"></p>
+    <div id="results">
+    </div> <!-- end of results div -->
+  </form>
+  <script>
+	function calcSalary() {
+	  var hoursWorked, hourlyRate;
+	  var basePay, bonusPay, totalPay;
+
+	  hoursWorked = document.getElementById('txtHours').value;
+	  hourlyRate = document.getElementById('txtHourlyPay').value;
+
+	  //I am using *floats* for these because people may well work
+	  //for half hours, quarter hours, etc
+	  hoursWorked = parseFloat(hoursWorked);
+	  hourlyRate = parseFloat(hourlyRate);
+
+	  basePay = hoursWorked * hourlyRate;
+	  //IMPORTANT: I do *NOT* need to parse this because hoursWorked and hourlyRate
+	  //are already holding numbers. Those variables are NOT holding strings.
+
+
+	  //alert("Hours: " + hoursWorked + " Rate: " + hourlyRate + " Base: " + basePay + " " );
+	  //The line above was used during TESTING.
+	  //Your life will be MUCH easier if you get in the
+	  //habit of including output statements as you are writing your code,
+	  //since you can quickly spot an error if one creeps in.
+
+	  //If they work over 40 hours, calculate 10% of their pay as a bonus
+	  if ( hoursWorked > 40 ) 
+      {
+	    bonusPay = basePay*0.1;
+	  }
+	  else 
+      {
+	    bonusPay = 0;
+	  }
+
+	  totalPay = basePay + bonusPay;
+      totalPay = totalPay.toFixed(2);//2 decimal places
+
+      resultsString = "You have earned $" + totalPay + " for this period.";
+      document.getElementById("results").innerHTML = resultsString;
+	}
+  </script>
+</body>
+</html>
